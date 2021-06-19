@@ -1,0 +1,47 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='skeleton.css') }}">
+
+<div class="container">
+
+  {% for message in get_flashed_messages() %}
+    <div class="message">{{ message }}</div>
+  {% endfor %}
+
+  <form method="post">
+    <div class="three columns">
+      <input type="text" name="nick"
+        placeholder="URL nickname" class="u-full-width"
+        value="{{ request.form['nick'] }}">
+    </div>
+    <div class="six columns">
+      <input type="text" name="address"
+        placeholder="URL to be shortened" class="u-full-width"
+        value="{{ request.form['address'] }}">
+    </div>
+    <div class="three columns">
+      <input class="button-primary" type="submit" value="Submit">
+    </div>
+  </form>
+
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Shortcut</th>
+        <th>Destination</th>
+        <th>Clicks</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for link in all_links %}
+        <tr>
+          <td>{{ link['nick'] }}</td>
+          <td><a href="{{ link['address'] }}">{{ link['address'] }}</a></td>
+          <td>{{ link['clicks'] }}</td>
+          <td>{{ link['created'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
