@@ -302,6 +302,8 @@ hr {
   justify-content: center;
   text-align: center;
   align-items: center;
+  justify-items: center;
+
   padding-top: 30vh;
   width: 100%; }
 
@@ -309,6 +311,14 @@ hr {
   padding: 1rem;
   text-align: center;
   color: var(--theme-color);
+}
+
+.login {
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  max-width: 400px;
 }
 
 .note {

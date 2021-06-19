@@ -1,0 +1,23 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='skeleton.css') }}">
+
+<div class="container login">
+  <div class="hero">
+
+    {% for message in get_flashed_messages() %}
+      <div class="message">{{ message }}</div>
+    {% endfor %}
+
+    <form method="post" class="login">
+      <div class="nine columns">
+        <input type="text" name="pass"
+          placeholder="admin password" class="u-full-width"
+          value="{{ request.form['pass'] }}" autofocus>
+      </div>
+      <div class="three columns">
+        <input class="button-primary" type="submit" value="Submit">
+      </div>
+    </form>
+
+  </div>
+</div>
